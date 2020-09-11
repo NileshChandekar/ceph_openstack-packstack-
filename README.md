@@ -192,3 +192,28 @@ source keystonerc_admin
 
 
 ### Ceph Deployment 
+
+* Ceph is a distributed file system supporting block, object and file based storage. 
+
+* It consists of: 
+
+	* MON nodes, 
+	* OSD nodes and optionally an 
+	* MDS node. 
+
+* The **MON** node is for monitoring the cluster and there are normally multiple monitor nodes to prevent a single point of failure. 
+
+* The **OSD** nodes house ceph Object Storage Daemons which is where the user data is held. 
+
+* The **MDS** node is the Meta Data Node and is only used for file based storage. It is not necessary if block and object storage is only needed. 
+
+* The **diagram** below is taken from the ceph web site and shows that all nodes have access to a front end Public network, [Storage Management] 
+
+* Optionally there is a backend Cluster Network which is only used by the OSD nodes. [Storage Data Network]
+
+* The cluster network takes replication traffic away from the front end network and may improve performance. 
+
+* By default a backend cluster network is not created and needs to be manually configured in ceph’s configuration file (ceph.conf).
+
+* The ceph clients are part of the cluster.
+
