@@ -276,9 +276,9 @@ source keystonerc_admin
 
 #### Prepare OSD Nodes First. 
 
-|NodeName|IP|Role|RAM|RootDisk|DataDisk|
+|NodeName|IP|Role|RAM|RootDisk|DataDisk|Internal Network [data replication]|
 |----|----|----|----|----|----|
-|Packstack|192.168.100.150|MON_Node|6GB|50GB|NA|
-|cepn_node0|192.168.100.160|OSD_0_Node|1GB|10GB|5GB|
-|cepn_node1|192.168.100.161|OSD_1_Node|1GB|10GB|5GB|
-|cepn_node2|192.168.100.162|OSD_2_Node|1GB|10GB|5GB|
+|Packstack|192.168.100.150|MON_Node|6GB|50GB|NA|NA
+|cepn_node0|192.168.100.160|OSD_0_Node|1GB|10GB|5GB|10.0.0.160|
+|cepn_node1|192.168.100.161|OSD_1_Node|1GB|10GB|5GB|10.0.0.161|
+|cepn_node2|192.168.100.162|OSD_2_Node|1GB|10GB|5GB|10.0.0.162|
