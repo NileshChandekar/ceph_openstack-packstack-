@@ -34,7 +34,7 @@ systemctl enable network
 systemctl disable firewalld
 ~~~
 
-2) Enable **EPE** repo
+2) Enable **EPEL** repo
 
 ~~~
 yum  install epel-release.noarch -y
@@ -93,5 +93,5 @@ CONFIG_PROVISION_DEMO=n
 
 7) Remove **OVN**
 
-8) Here is my [Caption](https://example.com)
+8) Here is my [answer file](https://github.com/NileshChandekar/ceph_openstack-packstack-/blob/master/images/answer.txt)
 
