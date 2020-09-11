@@ -186,6 +186,8 @@ source keystonerc_admin
 
 12) Let check **Horizon** dashboard. 
 
-![Image ipa](https://github.com/NileshChandekar/ceph_openstack-packstack-/tree/master/images/1.png)
+*Start Using it. 
+
+![Horizon](https://github.com/NileshChandekar/ceph_openstack-packstack-/tree/master/images/1.png)
 
 
