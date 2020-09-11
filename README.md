@@ -188,5 +188,6 @@ source keystonerc_admin
 
 12) Let check ![Horizon](https://github.com/NileshChandekar/ceph_openstack-packstack-/tree/master/images/1.png)  dashboard. 
 
+13) Let check ![Log into Horizon](https://github.com/NileshChandekar/ceph_openstack-packstack-/tree/master/images/1.png)  dashboard.
 
 
