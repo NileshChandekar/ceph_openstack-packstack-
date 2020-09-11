@@ -221,3 +221,64 @@ source keystonerc_admin
 
 * Ceph clients communicate directly with the OSDs rather than going through a dedicated server.
 
+* The OSDs (Object Storage Daemons) store the data. They can be up and in the map or can be down and out if they have failed. 
+
+* An OSD can be down but still in the map which means that the PG has not yet been remapped. When OSDs come on line they inform the monitor.
+
+* The Monitors store a master copy of the cluster map.
+
+### Diagram ###
+
+#### The architectural model of ceph is shown below.
+
+* **RADOS**  stands for Reliable Autonomic Distributed Object Store and it makes up the heart of the scalable object storage service.
+
+* In addition to accessing RADOS via the defined interfaces, it is also possible to access RADOS directly via a set of library calls as shown above.
+
+#### Ceph Replication
+
+* By default three copies of the data are kept, although this can be changed!
+
+* Ceph can also use Erasure Coding, with Erasure Coding objects are stored in k+m chunks where :
+
+	* k = # of data chunks and 
+	* m = # of recovery or coding chunks
+
+* Example k=7, m=2 would use 9 OSDs 
+	* 7 for data storage and 
+	* 2 for recovery
+
+* Pools are created with an appropriate replication scheme.
+
+#### CRUSH (Controlled Replication Under Scalable Hashing)
+
+* The CRUSH map knows the topology of the system and is location aware. Objects are mapped to Placement Groups and Placement Groups are mapped to OSDs. 
+
+* It allows dynamic rebalancing and controls which Placement Group holds the objects and which of the OSDs should hold the Placement Group. 
+
+* A CRUSH map holds a list of OSDs, buckets and rules that hold replication directives. 
+
+* CRUSH will try not to shuffle too much data during rebalancing whereas a true hash function would be likely to cause greater data movement
+
+* The CRUSH map allows for different resiliency models such as:
+
+	#0 for a 1-node cluster.
+
+	#1 for a multi node cluster in a single rack
+
+	#2 for a multi node, multi chassis cluster with multiple hosts in a chassis
+
+	#3 for a multi node cluster with hosts across racks, etc.
+
+* osd crush chooseleaf type = {n}
+
+### Installation of Ceph. 
+
+#### Prepare OSD Nodes First. 
+
+|NodeName|IP|Role|
+|----|----|----|
+|Packstack|192.168.100.150|MON_Node|
+|cepn_node0|192.168.100.160|OSD_0_Node|
+|cepn_node1|192.168.100.161|OSD_1_Node|
+|cepn_node2|192.168.100.162|OSD_2_Node|
