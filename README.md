@@ -186,7 +186,7 @@ source keystonerc_admin
 
 12) Let check **Horizon** dashboard. 
 
-*Start Using it. 
+Start Using it. 
 
 ![Horizon](https://github.com/NileshChandekar/ceph_openstack-packstack-/tree/master/images/1.png)
 
