@@ -184,10 +184,7 @@ source keystonerc_admin
 [root@packstack-queens ~(keystone_admin)]# 
 ~~~
 
-12) Let check **Horizon** dashboard. 
+12) Let check ![Horizon](https://github.com/NileshChandekar/ceph_openstack-packstack-/tree/master/images/1.png)  dashboard. 
 
-Start Using it. 
-
-![Horizon](https://github.com/NileshChandekar/ceph_openstack-packstack-/tree/master/images/1.png)
 
 
