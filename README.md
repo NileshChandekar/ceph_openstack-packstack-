@@ -1,6 +1,6 @@
-##### Packstack_with_Ceph
+### Packstack_with_Ceph
 
-### Index
+##### *Index
 
 #### Packstack
 
