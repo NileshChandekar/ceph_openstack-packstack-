@@ -95,3 +95,30 @@ CONFIG_PROVISION_DEMO=n
 
 8) Here is my [answer file](https://github.com/NileshChandekar/ceph_openstack-packstack-/blob/master/images/answer.txt)
 
+9) Create a **bridge** network
+
+~~~
+DEVICE=eth0
+ONBOOT=yes
+TYPE=OVSPort
+DEVICETYPE=ovs
+OVS_BRIDGE=br-ex
+
+
+
+DEVICE=br-ex
+BOOTPROTO=static
+ONBOOT=yes
+TYPE=OVSBridge
+DEVICETYPE=ovs
+USERCTL=yes
+PEERDNS=yes
+IPV6INIT=no
+IPADDR=192.168.100.150
+NETMASK=255.255.255.0
+GATEWAY=192.168.100.1
+DNS1=10.75.5.25
+DNS2=8.8.8.8
+~~~
+
+
