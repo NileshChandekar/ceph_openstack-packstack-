@@ -121,4 +121,68 @@ DNS1=10.75.5.25
 DNS2=8.8.8.8
 ~~~
 
+10) **reboot** the node. 
+
+11) After **reboot** , check **service** details. 
+
+~~~
+source keystonerc_admin
+~~~
+
+~~~
+[root@packstack-queens ~(keystone_admin)]# openstack service list
++----------------------------------+-----------+--------------+
+| ID                               | Name      | Type         |
++----------------------------------+-----------+--------------+
+| 2e22de865f214d28beadc094b1e22bf3 | nova      | compute      |
+| 32119abccb294bf1a129b7c27bd6201e | placement | placement    |
+| 6984cb1a33de4d2bb97a71ee66dbdbba | swift     | object-store |
+| ab5c3fca3bc2435f90b1a4757c896027 | glance    | image        |
+| c9d869a8b02a4fd0b46b395a6d5a63c6 | cinderv3  | volumev3     |
+| d26b60f2bc994253bcbfab2dc2318608 | neutron   | network      |
+| e3c8f69f83e3484dace9f99edc51fe2e | cinderv2  | volumev2     |
+| f8c55cef9d684ff6951ae62edea0b2b3 | keystone  | identity     |
++----------------------------------+-----------+--------------+
+[root@packstack-queens ~(keystone_admin)]# 
+~~~
+
+~~~
+[root@packstack-queens ~(keystone_admin)]# openstack compute service list
++----+----------------+------------------------------+----------+---------+-------+----------------------------+
+| ID | Binary         | Host                         | Zone     | Status  | State | Updated At                 |
++----+----------------+------------------------------+----------+---------+-------+----------------------------+
+|  2 | nova-conductor | packstack-queens.example.com | internal | enabled | up    | 2020-09-11T10:07:50.000000 |
+|  3 | nova-scheduler | packstack-queens.example.com | internal | enabled | up    | 2020-09-11T10:07:49.000000 |
+|  5 | nova-compute   | packstack-queens.example.com | nova     | enabled | up    | 2020-09-11T10:07:46.000000 |
++----+----------------+------------------------------+----------+---------+-------+----------------------------+
+[root@packstack-queens ~(keystone_admin)]# 
+~~~
+
+~~~
+[root@packstack-queens ~(keystone_admin)]# openstack volume service list
++------------------+----------------------------------+------+---------+-------+----------------------------+
+| Binary           | Host                             | Zone | Status  | State | Updated At                 |
++------------------+----------------------------------+------+---------+-------+----------------------------+
+| cinder-scheduler | packstack-queens.example.com     | nova | enabled | up    | 2020-09-11T10:08:02.000000 |
+| cinder-backup    | packstack-queens.example.com     | nova | enabled | up    | 2020-09-11T10:08:05.000000 |
+| cinder-volume    | packstack-queens.example.com@lvm | nova | enabled | up    | 2020-09-11T10:08:07.000000 |
++------------------+----------------------------------+------+---------+-------+----------------------------+
+[root@packstack-queens ~(keystone_admin)]# 
+~~~
+
+~~~
+[root@packstack-queens ~(keystone_admin)]# openstack network agent list
++--------------------------------------+--------------------+------------------------------+-------------------+-------+-------+---------------------------+
+| ID                                   | Agent Type         | Host                         | Availability Zone | Alive | State | Binary                    |
++--------------------------------------+--------------------+------------------------------+-------------------+-------+-------+---------------------------+
+| 1b71f13b-0701-4dd5-b3ce-87337e13897b | Open vSwitch agent | packstack-queens.example.com | None              | :-)   | UP    | neutron-openvswitch-agent |
+| 281b4481-a6de-4162-ad5d-62400122752e | L3 agent           | packstack-queens.example.com | nova              | :-)   | UP    | neutron-l3-agent          |
+| 507f8431-9ceb-44b6-a564-739f9ffb99dc | Metadata agent     | packstack-queens.example.com | None              | :-)   | UP    | neutron-metadata-agent    |
+| 8bfd16ec-9ccb-42ce-88e2-f8ae2a53fb98 | DHCP agent         | packstack-queens.example.com | nova              | :-)   | UP    | neutron-dhcp-agent        |
+| be148363-179f-435b-900c-f00478937d07 | Metering agent     | packstack-queens.example.com | None              | :-)   | UP    | neutron-metering-agent    |
++--------------------------------------+--------------------+------------------------------+-------------------+-------+-------+---------------------------+
+[root@packstack-queens ~(keystone_admin)]# 
+~~~
+
+
 
