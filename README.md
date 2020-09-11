@@ -217,3 +217,7 @@ source keystonerc_admin
 
 * The ceph clients are part of the cluster.
 
+* The Client nodes know about monitors, OSDs and MDS’s but have no knowledge of object locations. 
+
+* Ceph clients communicate directly with the OSDs rather than going through a dedicated server.
+
